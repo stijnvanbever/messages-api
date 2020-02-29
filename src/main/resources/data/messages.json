@@ -1,0 +1,34 @@
+[
+  {
+    "_class": "be.stijnvanbever.messages.model.Message",
+    "sender": "Farnsworth",
+    "receiver": "Fry",
+    "subject": "Good news",
+    "content": "Good news everyone! I invented a machine that lets you poke people in the past",
+    "sentDate":"2020-02-24T13:37:07"
+  },
+  {
+    "_class": "be.stijnvanbever.messages.model.Message",
+    "sender": "Fry",
+    "receiver": "Farnsworth",
+    "subject": "RE: Good news",
+    "content": "Shut up and take my money!",
+    "sentDate":"2020-02-25T13:37:01"
+  },
+  {
+    "_class": "be.stijnvanbever.messages.model.Message",
+    "sender": "Bender",
+    "receiver": "Fry",
+    "subject": "Kill all humans",
+    "content": "Kill all humans! (except one)",
+    "sentDate":"2020-02-26T13:37:01"
+  },
+  {
+    "_class": "be.stijnvanbever.messages.model.Message",
+    "sender": "Fry",
+    "receiver": "Bender",
+    "subject": "RE: Kill all humans",
+    "content": "Who's that one? Is it Mom?",
+    "sentDate":"2020-02-27T13:37:01"
+  }
+]
