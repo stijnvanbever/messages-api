@@ -30,5 +30,13 @@
     "subject": "RE: Kill all humans",
     "content": "Who's that one? Is it Mom?",
     "sentDate":"2020-02-27T13:37:01"
+  },
+  {
+    "_class": "be.stijnvanbever.messages.model.Message",
+    "sender": "Hermes",
+    "receiver": "Bender",
+    "subject": "Beer gone",
+    "content": "Do you know where all the beer has gone?",
+    "sentDate":"2020-02-27T14:49:01"
   }
 ]
