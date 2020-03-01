@@ -22,7 +22,7 @@ public class MessageRepositoryTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"Farnsworth,1", "Bender,1", "Hermes:1", "Fry,2"})
+    @CsvSource({"Farnsworth,1", "Bender,1", "Hermes,1", "Fry,2"})
     public void shouldReturnMessages_When_SearchingOnSender(String sender, Integer expectedSize) {
         assertThat(messageRepository.findBySender(sender)).hasSize(expectedSize);
     }
