@@ -12,6 +12,22 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets {
+	integrationTest {
+		java {
+			compileClasspath += sourceSets.main.output
+			runtimeClasspath += sourceSets.main.output
+			srcDir 'src/integration-test/java'
+		}
+		resources.srcDir 'src/integration-test/resources'
+	}
+}
+
+configurations {
+	integrationTestCompile.extendsFrom testImplementation
+	integrationTestRuntime.extendsFrom testRuntime
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -24,3 +40,14 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+task integrationTest(type: Test) {
+	testClassesDirs = sourceSets.integrationTest.output.classesDirs
+	classpath = sourceSets.integrationTest.runtimeClasspath
+
+	shouldRunAfter test
+
+	useJUnitPlatform()
+}
+
+check.dependsOn integrationTest

@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class MessageRepositoryTest {
+public class MessageRepositoryIT {
     @Autowired
     private MessageRepository messageRepository;
 
