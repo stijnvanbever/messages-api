@@ -2,10 +2,13 @@ package be.stijnvanbever.messages.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
 public class Message {
+    @Id
+    private String id;
     private final String sender;
     private final String receiver;
     private final String subject;
@@ -24,6 +27,10 @@ public class Message {
         this.subject = subject;
         this.content = content;
         this.sentDate = sentDate;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getSender() {
