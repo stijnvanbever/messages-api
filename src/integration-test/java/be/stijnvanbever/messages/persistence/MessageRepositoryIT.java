@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Example;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
@@ -32,5 +35,17 @@ public class MessageRepositoryIT {
     public void shouldReturnMessages_When_SearchingOnReceiver(String receiver, Integer expectedSize) {
         Message message = new Message(null, receiver, null, null, null);
         assertThat(messageRepository.findAll(Example.of(message))).hasSize(expectedSize);
+    }
+
+    @Test
+    public void shouldReturnMessages_When_SearchingBetweenSentDates() {
+        LocalDateTime from = LocalDateTime.parse("2020-02-25T00:00:00");
+        LocalDateTime to = LocalDateTime.parse("2020-02-26T23:59:59");
+
+        List<Message> messages = messageRepository.findBySentDateBetween(from, to);
+        assertThat(messages)
+                .hasSize(2)
+                .extracting(Message::getSubject)
+                .containsExactlyInAnyOrder("RE: Good news", "Kill all humans");
     }
 }
