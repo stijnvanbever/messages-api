@@ -16,4 +16,8 @@ public class MessageTestProvider {
     public static Message aMessageWithSenderAndReceiver(String sender, String receiver) {
         return new Message(sender, receiver, "Subject", "Content", LocalDateTime.now());
     }
+
+    public static Message aMessageWithSentDate(LocalDateTime sentDate) {
+        return new Message("Sender", "Receiver", "Subject", "Content", sentDate);
+    }
 }
