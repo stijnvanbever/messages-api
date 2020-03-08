@@ -1,4 +1,4 @@
-package be.stijnvanbever.messages.statistics;
+package be.stijnvanbever.messages.estimation;
 
 public class MessageEstimation {
     private final Integer totalRemaining;

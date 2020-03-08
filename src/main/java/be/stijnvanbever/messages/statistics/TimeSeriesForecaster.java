@@ -1,5 +1,6 @@
 package be.stijnvanbever.messages.statistics;
 
+import be.stijnvanbever.messages.estimation.EstimationUnit;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

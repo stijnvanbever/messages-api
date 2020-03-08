@@ -48,4 +48,15 @@ public class MessageRepositoryIT {
                 .extracting(Message::getSubject)
                 .containsExactlyInAnyOrder("RE: Good news", "Kill all humans");
     }
+
+    @Test
+    public void shouldReturnMessages_When_SearchingSentDateGreaterThan() {
+        LocalDateTime localDateTime = LocalDateTime.parse("2020-02-26T00:00:00");
+
+        List<Message> messages = messageRepository.findBySentDateGreaterThan(localDateTime);
+        assertThat(messages)
+                .hasSize(3)
+                .extracting(Message::getSubject)
+                .containsExactlyInAnyOrder("Kill all humans", "RE: Kill all humans", "Beer gone");
+    }
 }

@@ -1,7 +1,8 @@
-package be.stijnvanbever.messages.statistics;
+package be.stijnvanbever.messages.estimation;
 
 import be.stijnvanbever.messages.model.Message;
 import be.stijnvanbever.messages.persistence.MessageRepository;
+import be.stijnvanbever.messages.statistics.TimeSeriesForecaster;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ public class MessageEstimationService {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime startOfEstimation = estimationUnit.toBeginningRange(now);
 
-        List<Message> messages = messageRepository.findBySentDateBetween(startOfEstimation, now);
+        List<Message> messages = messageRepository.findBySentDateGreaterThan(startOfEstimation);
         List<LocalDateTime> times = messages.stream().map(Message::getSentDate).collect(Collectors.toList());
         int remainingForecast = timeSeriesForecaster.forecastRemaining(times, now, estimationUnit);
 

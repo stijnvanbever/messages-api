@@ -1,5 +1,6 @@
-package be.stijnvanbever.messages.statistics;
+package be.stijnvanbever.messages.estimation;
 
+import be.stijnvanbever.messages.estimation.EstimationUnit;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

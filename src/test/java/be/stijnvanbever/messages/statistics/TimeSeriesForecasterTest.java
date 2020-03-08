@@ -1,5 +1,6 @@
 package be.stijnvanbever.messages.statistics;
 
+import be.stijnvanbever.messages.estimation.EstimationUnit;
 import be.stijnvanbever.messages.mockdata.MockTimesDataCreator;
 import be.stijnvanbever.messages.mockdata.MockTimesDataRequest;
 import org.junit.jupiter.api.Test;

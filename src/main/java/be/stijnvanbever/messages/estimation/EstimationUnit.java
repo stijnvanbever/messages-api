@@ -1,4 +1,4 @@
-package be.stijnvanbever.messages.statistics;
+package be.stijnvanbever.messages.estimation;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;

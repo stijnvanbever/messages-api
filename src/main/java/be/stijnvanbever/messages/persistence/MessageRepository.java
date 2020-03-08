@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface MessageRepository extends MongoRepository<Message, String> {
     List<Message> findBySentDateBetween(LocalDateTime from, LocalDateTime to);
+    List<Message> findBySentDateGreaterThan(LocalDateTime localDateTime);
 }
