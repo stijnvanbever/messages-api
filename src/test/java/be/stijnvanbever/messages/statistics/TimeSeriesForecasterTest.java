@@ -1,21 +1,21 @@
 package be.stijnvanbever.messages.statistics;
 
 import be.stijnvanbever.messages.estimation.EstimationUnit;
-import be.stijnvanbever.messages.mockdata.MockTimesDataCreator;
-import be.stijnvanbever.messages.mockdata.MockTimesDataRequest;
+import be.stijnvanbever.messages.mockdata.TimesMockDataCreator;
+import be.stijnvanbever.messages.mockdata.TimesMockDataRequest;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static be.stijnvanbever.messages.mockdata.MockTimesDataRequest.TimeIncreaser.DAY;
-import static be.stijnvanbever.messages.mockdata.MockTimesDataRequest.TimeIncreaser.HOUR;
+import static be.stijnvanbever.messages.mockdata.TimesMockDataRequest.TimeIncreaser.DAY;
+import static be.stijnvanbever.messages.mockdata.TimesMockDataRequest.TimeIncreaser.HOUR;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class TimeSeriesForecasterTest {
     private TimeSeriesForecaster timeSeriesForecaster = new TimeSeriesForecaster();
-    private MockTimesDataCreator dataCreator = new MockTimesDataCreator();
+    private TimesMockDataCreator dataCreator = new TimesMockDataCreator();
 
     @Test
     public void shouldForecastRemaining_When_TestingPerDay() {
@@ -23,7 +23,7 @@ class TimeSeriesForecasterTest {
         LocalDateTime currentTime = startOfDay.withHour(16).withMinute(37);
 
         List<LocalDateTime> times = dataCreator.createMockData(
-                new MockTimesDataRequest(startOfDay, HOUR, List.of(4, 3, 0, 8, 0, 5, 7, 2, 6, 5, 4, 2, 0, 1, 5))); // 52
+                new TimesMockDataRequest(startOfDay, HOUR, List.of(4, 3, 0, 8, 0, 5, 7, 2, 6, 5, 4, 2, 0, 1, 5))); // 52
         times.add(currentTime);
 
         int remaining = timeSeriesForecaster.forecastRemaining(times, currentTime, EstimationUnit.DAY);
@@ -36,7 +36,7 @@ class TimeSeriesForecasterTest {
         LocalDateTime currentTime = LocalDateTime.parse("2020-02-27T13:37:56");
 
         List<LocalDateTime> times = dataCreator.createMockData(
-                new MockTimesDataRequest(startOfWeek, DAY, List.of(32, 40, 33))); // 105
+                new TimesMockDataRequest(startOfWeek, DAY, List.of(32, 40, 33))); // 105
         times.add(currentTime);
 
         int remaining = timeSeriesForecaster.forecastRemaining(times, currentTime, EstimationUnit.WEEK);

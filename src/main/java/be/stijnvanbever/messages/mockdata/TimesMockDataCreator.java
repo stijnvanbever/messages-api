@@ -1,11 +1,14 @@
 package be.stijnvanbever.messages.mockdata;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockTimesDataCreator {
-    public List<LocalDateTime> createMockData(MockTimesDataRequest request) {
+@Component
+public class TimesMockDataCreator {
+    public List<LocalDateTime> createMockData(TimesMockDataRequest request) {
         List<LocalDateTime> mockData = new ArrayList<>();
         LocalDateTime currentTime = request.getStartTime();
 

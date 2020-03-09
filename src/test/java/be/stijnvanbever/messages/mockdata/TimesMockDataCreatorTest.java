@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static be.stijnvanbever.messages.mockdata.MockTimesDataRequest.TimeIncreaser.DAY;
-import static be.stijnvanbever.messages.mockdata.MockTimesDataRequest.TimeIncreaser.HOUR;
+import static be.stijnvanbever.messages.mockdata.TimesMockDataRequest.TimeIncreaser.DAY;
+import static be.stijnvanbever.messages.mockdata.TimesMockDataRequest.TimeIncreaser.HOUR;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class MockTimesDataCreatorTest {
-    private MockTimesDataCreator dataCreator = new MockTimesDataCreator();
+class TimesMockDataCreatorTest {
+    private TimesMockDataCreator dataCreator = new TimesMockDataCreator();
 
     @Test
     public void shouldCreateMockDataPerHour() {
         LocalDateTime startTime = LocalDateTime.parse("2020-02-24T03:04:55");
         List<Integer> distribution = List.of(3, 2, 0, 5, 0, 4);
-        MockTimesDataRequest request = new MockTimesDataRequest(startTime, HOUR, distribution);
+        TimesMockDataRequest request = new TimesMockDataRequest(startTime, HOUR, distribution);
 
         List<LocalDateTime> mockData = dataCreator.createMockData(request);
 
@@ -30,7 +30,7 @@ class MockTimesDataCreatorTest {
     public void shouldCreateMockDataPerDay() {
         LocalDateTime startTime = LocalDateTime.parse("2020-02-24T03:04:55");
         List<Integer> distribution = List.of(27, 31, 19);
-        MockTimesDataRequest request = new MockTimesDataRequest(startTime, DAY, distribution);
+        TimesMockDataRequest request = new TimesMockDataRequest(startTime, DAY, distribution);
 
         List<LocalDateTime> mockData = dataCreator.createMockData(request);
 

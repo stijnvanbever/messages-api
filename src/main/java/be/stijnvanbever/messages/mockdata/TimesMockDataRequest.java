@@ -1,15 +1,22 @@
 package be.stijnvanbever.messages.mockdata;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Function;
 
-public class MockTimesDataRequest {
+public class TimesMockDataRequest {
     private final LocalDateTime startTime;
     private final TimeIncreaser timeIncreaser;
     private final List<Integer> distribution;
 
-    public MockTimesDataRequest(LocalDateTime startTime, TimeIncreaser timeIncreaser, List<Integer> distribution) {
+    @JsonCreator
+    public TimesMockDataRequest(
+            @JsonProperty("startTime") LocalDateTime startTime,
+            @JsonProperty("timeIncreaser") TimeIncreaser timeIncreaser,
+            @JsonProperty("distribution") List<Integer> distribution) {
         this.startTime = startTime;
         this.timeIncreaser = timeIncreaser;
         this.distribution = distribution;
